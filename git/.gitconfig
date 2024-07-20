@@ -1,0 +1,8 @@
+[user]
+	name = Metin Yalcinkaya
+	email = metinyalcinkaya@hotmail.com.au
+[core]
+  editor = nvim
+	excludesfile = /Users/metinyalcinkaya/.gitignore_global
+[init]
+  defaultBranch = main
