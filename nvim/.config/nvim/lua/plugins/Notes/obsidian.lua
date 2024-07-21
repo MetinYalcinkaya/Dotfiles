@@ -59,6 +59,13 @@ return {
       vim.keymap.set('n', '<leader>os', '<cmd>ObsidianSearch<CR>', { desc = 'Search Obsidian' })
       vim.keymap.set('n', '<leader>oq', '<cmd>ObsidianQuickSwitch<CR>', { desc = 'Quick Switch' })
       vim.keymap.set('n', '<leader>op', '<cmd>ObsidianPasteImg<CR>', { desc = 'Paste Image' })
+      vim.keymap.set(
+        'n',
+        '<leader>ok',
+        ":!mv '%:p' /Users/metinyalcinkaya/Documents/Obsidian/Main/uncategorized<CR>:bd<CR>",
+        { desc = 'Move File To Uncategorized' }
+      )
+      vim.keymap.set('n', '<leader>odd', ":!rm '%:p'<CR>:bd<CR>", { desc = 'Delete File' })
       vim.keymap.set('n', '<leader>ot', function()
         vim.cmd 'ObsidianTemplate note'
         vim.cmd 'silent! 12s/\\(# \\)[^_]*_/\\1/ | silent! 12s/-/ /g'

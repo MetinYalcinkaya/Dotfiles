@@ -101,21 +101,24 @@ source $ZSH/oh-my-zsh.sh
 alias python=python3
 
 # Obsidian
+
+# Create new note with file name in vault
 on() {
   if [ -z "$1" ]; then
     echo "Error: A file name must be set"
     return
   fi
   file_name=$(echo "$1" | tr ' ' '-')
-  formatted_file_name=$(date "+%Y-%m-%d")_${file_name}.md
+  formatted_file_name=${file_name}.md
   cd "/Users/metinyalcinkaya/Documents/Obsidian/Main/"
   touch "inbox/${formatted_file_name}"
   nvim "inbox/${formatted_file_name}"
 }
 
+# Processes and categorizes files from uncategorized folder
 og() {
   VAULT_DIR="/Users/metinyalcinkaya/Documents/Obsidian/Main"
-  SOURCE_DIR="inbox"
+  SOURCE_DIR="uncategorized"
   DEST_DIR="notes"
 
   find "$VAULT_DIR/$SOURCE_DIR" -type f -name "*.md" | while read -r file; do
@@ -134,6 +137,9 @@ og() {
   done
   echo "Done!"
 }
+
+# Obsidian review
+alias or="nvim $HOME/Documents/Obsidian/Main/inbox/*.md"
 
 if command -v 'tmux' >/dev/null; then
   # Start tmux.
