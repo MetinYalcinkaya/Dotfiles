@@ -50,7 +50,7 @@ return {
       },
     },
     config = function(_, opts)
-      -- Setup binds when plugin is loaded
+      -- Setup binds when plugin is loaded since it'll only be for markdown files
       vim.keymap.set('n', '<leader>oc', "<cmd>lua require('obsidian').util.toggle_checkbox()<CR>", { desc = 'Obsidian Toggle Checkbox' })
       vim.keymap.set('n', '<leader>oo', '<cmd>ObsidianOpen<CR>', { desc = 'Open in Obsidian App' })
       vim.keymap.set('n', '<leader>ob', '<cmd>ObsidianBacklinks<CR>', { desc = 'Show Obsidian Backlinks' })
