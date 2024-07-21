@@ -61,7 +61,7 @@ return {
       vim.keymap.set('n', '<leader>op', '<cmd>ObsidianPasteImg<CR>', { desc = 'Paste Image' })
       vim.keymap.set('n', '<leader>ot', function()
         vim.cmd 'ObsidianTemplate note'
-        vim.cmd 'silent! 10s/\\(# \\)[^_]*_/\\1/ | silent! 10s/-/ /g'
+        vim.cmd 'silent! 12s/\\(# \\)[^_]*_/\\1/ | silent! 12s/-/ /g'
         vim.cmd 'noh'
       end, { desc = 'Insert Template' })
       require('obsidian').setup(opts)

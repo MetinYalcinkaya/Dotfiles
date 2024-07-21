@@ -63,6 +63,7 @@ vim.opt.smartindent = true
 
 -- Conceal level
 vim.o.conceallevel = 2
+
 -- Environment Vars
 -- vim.env.PLUGINS = '~/.config/nvim/lua/config/lazy-plugins.lua' -- $PLUGINS to quickly edit plugins with :e $PLUGINS
 
