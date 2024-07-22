@@ -1,6 +1,6 @@
 # dotfiles
 
-![https://github.com/user-attachments/assets/0824ae12-7f3a-4c5d-9995-3cd9b5202921](Fetch.png)
+![Fetch](https://github.com/user-attachments/assets/9ae92c41-fb4d-48f5-932c-1b63e9eed118)
 
 ## Setup
 
