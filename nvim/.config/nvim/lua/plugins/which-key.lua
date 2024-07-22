@@ -35,10 +35,10 @@ return {
         { '<leader>-', group = 'Oil Overlay', icon = { icon = '󰏇', color = 'red' } },
         -- Surround
         { 's', group = '+ surround', icon = { icon = '󰅪', color = 'cyan' } },
+        -- Trouble
+        { '<leader>x', group = 'Diagnostics', icon = { icon = '󰔫', color = 'cyan' } },
         wk.setup(opts),
       }
     end,
   },
 }
-
--- vim: ts=2 sts=2 sw=2 et

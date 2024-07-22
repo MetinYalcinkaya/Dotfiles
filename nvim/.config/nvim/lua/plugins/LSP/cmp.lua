@@ -11,14 +11,18 @@ return {
           end
           return 'make install_jsregexp'
         end)(),
-        dependencies = { 'rafamadriz/friendly-snippets' },
+        dependencies = {
+          'rafamadriz/friendly-snippets',
+          config = function()
+            require('luasnip.loaders.from_vscode').lazy_load()
+          end,
+        },
       },
       'saadparwaiz1/cmp_luasnip',
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
     },
     config = function()
-      require('luasnip.loaders.from_vscode').lazy_load()
       local cmp = require 'cmp'
       local luasnip = require 'luasnip'
       luasnip.config.setup {}
@@ -59,5 +63,3 @@ return {
     end,
   },
 }
-
--- vim: ts=2 sts=2 sw=2 et

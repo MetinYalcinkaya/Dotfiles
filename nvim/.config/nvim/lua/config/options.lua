@@ -1,3 +1,8 @@
+-- Set <space> as the leader key
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+vim.g.have_nerd_font = true
+
 -- Make line numbers default
 vim.opt.number = true
 
@@ -63,8 +68,3 @@ vim.opt.smartindent = true
 
 -- Conceal level
 vim.o.conceallevel = 2
-
--- Environment Vars
--- vim.env.PLUGINS = '~/.config/nvim/lua/config/lazy-plugins.lua' -- $PLUGINS to quickly edit plugins with :e $PLUGINS
-
--- vim: ts=2 sts=2 sw=2 et

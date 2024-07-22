@@ -19,7 +19,6 @@ return {
   },
   {
     'echasnovski/mini.icons',
-    opts = {},
     init = function()
       package.preload['nvim-web-devicons'] = function()
         require('mini.icons').mock_nvim_web_devicons()
@@ -28,5 +27,3 @@ return {
     end,
   },
 }
-
--- vim: ts=2 sts=2 sw=2 et

@@ -37,5 +37,3 @@ end
 
 -- Unbind s and S for smoother surround usage
 vim.keymap.set('n', 's', '<nop>')
-
--- vim: ts=2 sts=2 sw=2 et
