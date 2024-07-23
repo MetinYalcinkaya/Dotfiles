@@ -68,7 +68,17 @@ return {
       vim.keymap.set('n', '<leader>odd', ":!rm '%:p'<CR>:bd<CR>", { desc = 'Delete File' })
       vim.keymap.set('n', '<leader>ot', function()
         vim.cmd 'ObsidianTemplate note'
-        vim.cmd 'silent! 12s/\\(# \\)[^_]*_/\\1/ | silent! 12s/-/ /g'
+        -- vim.cmd 'silent! 12s/\\(# \\)[^_]*_/\\1/ | silent! 12s/-/ /g'
+        local line = vim.fn.getline(12)
+        local title = line:match '# (.*)'
+
+        if title then
+          title = title:gsub('_%d%d%d%d%-%d%d%-%d%d$', '')
+          title = title:gsub('[_%-]', ' ')
+          title = title:gsub('%s+$', '')
+          vim.fn.setline(12, '# ' .. title)
+        end
+
         vim.cmd 'noh'
       end, { desc = 'Insert Template' })
       require('obsidian').setup(opts)

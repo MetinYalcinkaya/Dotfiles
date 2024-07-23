@@ -37,6 +37,8 @@ return {
         { 's', group = '+ surround', icon = { icon = '󰅪', color = 'cyan' } },
         -- Trouble
         { '<leader>x', group = 'Diagnostics', icon = { icon = '󰔫', color = 'cyan' } },
+        -- Git
+        { '<leader>g', group = '[G]it', icon = { name = 'git', cat = 'filetype' } },
         wk.setup(opts),
       }
     end,

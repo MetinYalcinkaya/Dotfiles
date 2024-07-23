@@ -21,4 +21,14 @@ autocmd('BufEnter', {
   desc = 'Disable new line comment',
 })
 
+-- Spellcheck enable in markdown files
+autocmd('FileType', {
+  pattern = 'markdown',
+  callback = function()
+    vim.o.spell = true
+  end,
+  group = general,
+  desc = 'Spellcheck for Markdown files',
+})
+
 -- vim: ts=2 sts=2 sw=2 et

@@ -102,14 +102,15 @@ alias python=python3
 
 # Obsidian
 
-# Create new note with file name in vault
+# Create new note with date + file name in vault
 on() {
   if [ -z "$1" ]; then
     echo "Error: A file name must be set"
     return
   fi
   file_name=$(echo "$1" | tr ' ' '-')
-  formatted_file_name=${file_name}.md
+  formatted_file_name=${file_name}_$(date "+%Y-%m-%d").md
+  # formatted_file_name=${file_name}.md
   cd "/Users/metinyalcinkaya/Documents/Obsidian/Main/"
   touch "inbox/${formatted_file_name}"
   nvim "inbox/${formatted_file_name}"

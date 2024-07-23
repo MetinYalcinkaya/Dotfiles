@@ -2,6 +2,10 @@
 vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
+-- Move visual code up/down
+vim.keymap.set('x', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move code down', silent = true })
+vim.keymap.set('x', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move code up', silent = true })
+
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
