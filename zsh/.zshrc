@@ -142,6 +142,7 @@ og() {
 # Obsidian review
 alias or="nvim $HOME/Documents/Obsidian/Main/inbox/*.md"
 
+# Tmux aliases
 if command -v 'tmux' >/dev/null; then
   # Start tmux.
   alias tm='tmux'
@@ -167,6 +168,9 @@ if command -v 'tmux' >/dev/null; then
   # Start a new tmux session.
   alias tms='tmux new-session -s'
 fi
+
+# Set default editor
+export EDITOR=nvim
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

@@ -56,7 +56,7 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 20
 
 -- Set true term colors
-vim.o.termguicolors = true
+vim.opt.termguicolors = true
 
 -- Change tab sizing
 vim.opt.tabstop = 2
@@ -65,6 +65,9 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
+
+-- Disable markdown recommended style
+vim.g.markdown_recommended_style = 0
 
 -- Conceal level
 vim.o.conceallevel = 2

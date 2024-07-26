@@ -85,7 +85,7 @@ return {
         'pyright', -- Static type checker for Python
         'isort', -- Import sorter for Python
         'marksman', -- Markdown LSP server (Completion, goto def, references, rename, diag)
-        'prettier', -- Using for markdown formatting specifically
+        'prettierd', -- Using for markdown formatting specifically
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
