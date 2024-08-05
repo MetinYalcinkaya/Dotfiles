@@ -6,6 +6,7 @@ return {
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' },
     config = function()
       require('render-markdown').setup {
+        debounce = 5,
         win_options = {
           conceallevel = {
             -- These settings work better with obsidian.nvim, instead of

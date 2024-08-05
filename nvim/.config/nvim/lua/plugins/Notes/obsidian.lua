@@ -44,6 +44,8 @@ return {
       },
       ui = {
         enable = true,
+        checkboxes = {},
+        bullets = {},
       },
       attachments = {
         img_folder = 'images',

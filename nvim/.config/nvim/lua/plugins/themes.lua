@@ -7,7 +7,7 @@ return {
     ---@class tokyonight.Config
     config = function()
       require('tokyonight').setup {
-        style = 'moon',
+        style = 'night',
         lualine_bold = true,
       }
       vim.cmd.colorscheme 'tokyonight'
