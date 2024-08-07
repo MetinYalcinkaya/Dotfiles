@@ -1,7 +1,6 @@
 return {
   {
-    'MeanderingProgrammer/markdown.nvim',
-    name = 'render-markdown',
+    'MeanderingProgrammer/render-markdown.nvim',
     ft = { 'markdown' },
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' },
     config = function()
@@ -23,4 +22,29 @@ return {
       end, { desc = 'Toggle Markdown Render' })
     end,
   },
+  -- {
+  --   'OXY2DEV/markview.nvim',
+  --   ft = 'markdown',
+  --   dependencies = {
+  --     'nvim-treesitter/nvim-treesitter',
+  --     'echasnovski/mini.icons',
+  --   },
+  --   config = function()
+  --     require('markview').setup {
+  --       hybrid_modes = { 'n', 'i' },
+  --       code_blocks = {
+  --         enable = true,
+  --         style = 'language',
+  --         position = 'overlay',
+  --         hl = 'markdownCodeBlock',
+  --         language_direction = 'left',
+  --         language_names = {
+  --           { 'py', 'python' },
+  --           { 'cpp', 'c++' },
+  --         },
+  --       },
+  --     }
+  --     vim.keymap.set('n', '<leader>mt', '<CMD>Markview toggle<CR>', { desc = 'Toggle Markdown Render' })
+  --   end,
+  -- },
 }

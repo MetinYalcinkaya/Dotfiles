@@ -69,5 +69,11 @@ vim.opt.smartindent = true
 -- Disable markdown recommended style
 vim.g.markdown_recommended_style = 0
 
+-- Spell language
+vim.opt.spelllang = { 'en' }
+
+-- Experimental smooth scrolling
+vim.opt.smoothscroll = true
+
 -- Conceal level
 vim.o.conceallevel = 2

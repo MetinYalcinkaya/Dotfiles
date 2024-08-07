@@ -86,6 +86,7 @@ return {
         'isort', -- Import sorter for Python
         'marksman', -- Markdown LSP server (Completion, goto def, references, rename, diag)
         'prettierd', -- Using for markdown formatting specifically
+        'pylint', -- Python linter
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

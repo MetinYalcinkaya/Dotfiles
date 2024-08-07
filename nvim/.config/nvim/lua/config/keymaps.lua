@@ -38,6 +38,3 @@ if os.getenv 'TMUX' then
   vim.keymap.set('n', '<C-k>', '<cmd>TmuxNavigateUp<cr>', { desc = 'Move focus to the upper window' })
   vim.keymap.set('n', '<C-l>', '<cmd>TmuxNavigateRight<cr>', { desc = 'Move focus to the right window' })
 end
-
--- Unbind s and S for smoother surround usage
-vim.keymap.set('n', 's', '<nop>')

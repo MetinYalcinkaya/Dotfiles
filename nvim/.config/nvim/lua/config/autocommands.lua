@@ -21,14 +21,24 @@ autocmd('BufEnter', {
   desc = 'Disable new line comment',
 })
 
--- Spellcheck enable in markdown files
+-- Spellcheck, wrap, and text width for text filetypes
 autocmd('FileType', {
-  pattern = 'markdown',
+  pattern = { 'markdown', 'gitcommit', 'NeogitCommitMessage' },
   callback = function()
-    vim.o.spell = true
+    vim.opt_local.wrap = true
+    vim.opt_local.spell = true
+    vim.opt_local.textwidth = 80
   end,
   group = general,
   desc = 'Spellcheck for Markdown files',
 })
 
--- vim: ts=2 sts=2 sw=2 et
+autocmd('FocusGained', {
+  callback = function()
+    if vim.o.buftype ~= 'nofile' then
+      vim.cmd 'checktime'
+    end
+  end,
+  group = general,
+  desc = 'Reload file if changed',
+})
