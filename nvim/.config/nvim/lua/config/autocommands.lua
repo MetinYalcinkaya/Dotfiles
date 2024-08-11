@@ -1,14 +1,12 @@
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
 
-local general = augroup('General', { clear = true })
-
 -- Highlight when yanking (copying) text
 autocmd('TextYankPost', {
   callback = function()
     vim.highlight.on_yank { timeout = 200 }
   end,
-  group = general,
+  group = augroup('highlight-on-yank', { clear = true }),
   desc = 'Highlight when yanking (copying) text',
 })
 
@@ -17,7 +15,7 @@ autocmd('BufEnter', {
   callback = function()
     vim.opt.formatoptions:remove { 'c', 'r', 'o' }
   end,
-  group = general,
+  group = augroup('disable-comment-new-line', { clear = true }),
   desc = 'Disable new line comment',
 })
 
@@ -29,16 +27,17 @@ autocmd('FileType', {
     vim.opt_local.spell = true
     vim.opt_local.textwidth = 80
   end,
-  group = general,
+  group = augroup('spellcheck-for-md', { clear = true }),
   desc = 'Spellcheck for Markdown files',
 })
 
+-- Reload on file change
 autocmd('FocusGained', {
   callback = function()
     if vim.o.buftype ~= 'nofile' then
       vim.cmd 'checktime'
     end
   end,
-  group = general,
+  group = augroup('reload-on-file-change', { clear = true }),
   desc = 'Reload file if changed',
 })
