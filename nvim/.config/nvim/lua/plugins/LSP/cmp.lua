@@ -8,6 +8,7 @@ return {
     },
     config = function()
       local cmp = require 'cmp'
+      require('snippets.snippets').register_source()
 
       cmp.setup {
         snippet = {
@@ -24,14 +25,18 @@ return {
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
           ['<C-y>'] = cmp.mapping.confirm { select = true },
           ['<C-Space>'] = cmp.mapping.complete {},
-          ['<Tab>'] = cmp.mapping(function()
+          ['<Tab>'] = cmp.mapping(function(fallback)
             if vim.snippet.active { direction = 1 } then
               vim.snippet.jump(1)
+            else
+              fallback()
             end
           end, { 'i', 's' }),
-          ['<C-h>'] = cmp.mapping(function()
+          ['<S-Tab>'] = cmp.mapping(function(fallback)
             if vim.snippet.active { direction = -1 } then
               vim.snippet.jump(-1)
+            else
+              fallback()
             end
           end, { 'i', 's' }),
         },
