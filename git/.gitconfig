@@ -7,3 +7,11 @@
 	excludesfile = /Users/metinyalcinkaya/.gitignore_global
 [init]
   defaultBranch = main
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
+[commit]
+  gpgsign = true
