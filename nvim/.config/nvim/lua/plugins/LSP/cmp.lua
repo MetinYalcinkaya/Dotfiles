@@ -3,29 +3,16 @@ return {
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
     dependencies = {
-      {
-        'L3MON4D3/LuaSnip',
-        build = 'make install_jsregexp',
-        dependencies = {
-          'rafamadriz/friendly-snippets',
-          config = function()
-            require('luasnip.loaders.from_vscode').lazy_load()
-          end,
-        },
-      },
-      'saadparwaiz1/cmp_luasnip',
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
     },
     config = function()
       local cmp = require 'cmp'
-      local luasnip = require 'luasnip'
-      luasnip.config.setup {}
 
       cmp.setup {
         snippet = {
           expand = function(args)
-            luasnip.lsp_expand(args.body)
+            vim.snippet.expand(args.body)
           end,
         },
         completion = { completeopt = 'menu,menuone,noinsert' },
@@ -37,14 +24,14 @@ return {
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
           ['<C-y>'] = cmp.mapping.confirm { select = true },
           ['<C-Space>'] = cmp.mapping.complete {},
-          ['<C-l>'] = cmp.mapping(function()
-            if luasnip.expand_or_locally_jumpable() then
-              luasnip.expand_or_jump()
+          ['<Tab>'] = cmp.mapping(function()
+            if vim.snippet.active { direction = 1 } then
+              vim.snippet.jump(1)
             end
           end, { 'i', 's' }),
           ['<C-h>'] = cmp.mapping(function()
-            if luasnip.locally_jumpable(-1) then
-              luasnip.jump(-1)
+            if vim.snippet.active { direction = -1 } then
+              vim.snippet.jump(-1)
             end
           end, { 'i', 's' }),
         },
@@ -54,7 +41,7 @@ return {
             group_index = 0,
           },
           { name = 'nvim_lsp' },
-          { name = 'luasnip' },
+          { name = 'snp' },
           { name = 'buffer' },
           { name = 'path' },
         },
