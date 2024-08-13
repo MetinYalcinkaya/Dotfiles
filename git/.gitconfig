@@ -1,6 +1,7 @@
 [user]
 	name = Metin Yalcinkaya
 	email = metinyalcinkaya@hotmail.com.au
+	signingkey = /Users/metinyalcinkaya/.ssh/id_ed25519.pub
 [core]
   editor = nvim
 	excludesfile = /Users/metinyalcinkaya/.gitignore_global
