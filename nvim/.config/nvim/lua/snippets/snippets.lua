@@ -124,10 +124,12 @@ local markdown_snippets = {
 }
 
 local lua_snippets = {}
+local python_snippets = {}
 
 local snippets_by_filetype = {
   lua = lua_snippets,
   markdown = markdown_snippets,
+  python = python_snippets,
 }
 
 local function get_buf_snips()

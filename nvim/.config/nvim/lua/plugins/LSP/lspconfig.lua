@@ -87,6 +87,9 @@ return {
         'marksman', -- Markdown LSP server (Completion, goto def, references, rename, diag)
         'prettierd', -- Using for markdown formatting specifically
         'pylint', -- Python linter
+        'gopls', -- Golang LSP
+        -- Debuggers
+        -- 'delve', -- Golang debugger
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

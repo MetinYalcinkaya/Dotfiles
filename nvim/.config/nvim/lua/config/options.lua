@@ -30,6 +30,9 @@ vim.opt.undofile = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+-- Command bar height, when using commands it covers lualine
+vim.opt.cmdheight = 0
+
 -- Keep signcolumn on by default
 vim.opt.signcolumn = 'yes'
 

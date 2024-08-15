@@ -14,19 +14,23 @@ return {
           },
           ignore_focus = {},
           always_divide_middle = true,
-          globalstatus = false,
+          globalstatus = true,
           refresh = {
             statusline = 100,
-            tabline = 1000,
-            winbar = 1000,
           },
         },
         sections = {
           lualine_a = {
             { 'mode', icon = '' },
             {
-              require('noice').api.status.mode.get,
-              cond = require('noice').api.status.mode.has,
+              function() -- Macro recording
+                local rr = vim.fn.reg_recording()
+                if rr == '' then
+                  return ''
+                else
+                  return 'recording @' .. rr
+                end
+              end,
             },
           },
           lualine_b = { { 'branch', icon = '' } },
@@ -72,7 +76,7 @@ return {
             },
           },
         },
-        extensions = { 'oil', 'mason', 'trouble' },
+        -- extensions = { 'oil', 'mason', 'trouble' },
       }
     end,
   },

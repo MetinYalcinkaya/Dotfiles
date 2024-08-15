@@ -25,6 +25,7 @@ return {
         lua = { 'stylua' },
         python = { 'isort', 'black' },
         markdown = { 'prettierd' },
+        go = { 'gofmt' },
       },
     },
   },

@@ -87,3 +87,8 @@ alias lst="eza --color=always --group-directories-first --tree --level=2"
 # Bat #
 #######
 alias cat="bat --paging=never"
+
+##########
+# cht.sh #
+##########
+alias wtf="xargs -I STRING cht.sh STRING <<<"
