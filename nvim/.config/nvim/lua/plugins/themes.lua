@@ -8,7 +8,11 @@ return {
     config = function()
       require('tokyonight').setup {
         style = 'night',
+        styles = {
+          floats = 'normal',
+        },
         lualine_bold = true,
+        cache = true,
       }
       vim.cmd.colorscheme 'tokyonight'
     end,

@@ -76,6 +76,7 @@ sources+="$ZDOTDIR/aliases/aliases" # Aliases
 for file in $ZDOTDIR/scripts/*; do
   sources+="$file"
 done
+
 # Plugins
 sources+="$ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" # Syntax highlighting
 sources+="$ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" # Autosuggestions
