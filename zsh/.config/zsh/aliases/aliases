@@ -4,6 +4,8 @@
 alias dots="cd $DOTFILES"
 alias vault="cd $HOME/Documents/Obsidian/Main/"
 alias workspace="cd $HOME/Developer/Workspace/"
+# Obsidian review
+alias or="nvim $HOME/Documents/Obsidian/Main/inbox/*.md"
 
 #######
 # ZSH #

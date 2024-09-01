@@ -4,7 +4,6 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
 setopt AUTO_PUSHD
 setopt PUSHD_IGNORE_DUPS
 setopt PUSHD_SILENT
@@ -38,6 +37,13 @@ export CLICOLOR=1
 # Bat colorscheme
 export BAT_THEME="tokyonight_night"
 
+############
+# Ruby Env #
+############
+if [ -d "/opt/homebrew/opt/ruby/bin/" ]; then
+  export PATH=/opt/homebrew/opt/ruby/bin:$PATH
+  export PATH='gem environment gemdir'/bin:$PATH
+fi
 # FZF ToykoNight
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
   --highlight-line \
@@ -63,6 +69,10 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
   --color=spinner:#ff007c \
 "
 
+###########
+# Keymaps #
+###########
+bindkey -s ^f "tmux-sessionizer\n"
 # Use fd instead of fzf
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -73,10 +83,6 @@ export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git
 ############
 typeset -a sources
 sources+="$ZDOTDIR/aliases/aliases" # Aliases
-for file in $ZDOTDIR/scripts/*; do
-  sources+="$file"
-done
-
 # Plugins
 sources+="$ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" # Syntax highlighting
 sources+="$ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" # Autosuggestions
@@ -93,7 +99,15 @@ done
 # FZF #
 #######
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# For ** functionality
+# E.g.: cd ** {tab}, nvim ** {tab}
+_fzf_compgen_path() {
+  fd --hidden --exclude .git . "$1"
+}
 
+_fzf_compgen_dir() {
+  fd --type=d --hidden --exclude .git . "$1"
+}
 autoload -Uz compinit && compinit
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.

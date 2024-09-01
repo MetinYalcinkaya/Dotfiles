@@ -3,17 +3,36 @@ return {
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
     dependencies = {
-      'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
+      'hrsh7th/cmp-buffer',
+      {
+        'L3MON4D3/LuaSnip',
+        build = (function()
+          if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then
+            return
+          end
+          return 'make install_jsregexp'
+        end)(),
+        dependencies = {
+          {
+            'friendly-snippets',
+            config = function()
+              require('luasnip.loaders.from_vscode').lazy_load()
+            end,
+          },
+        },
+        'saadparwaiz1/cmp_luasnip',
+      },
     },
     config = function()
       local cmp = require 'cmp'
-      require('snippets.snippets').register_source()
+      local luasnip = require 'luasnip'
+      luasnip.config.setup {}
 
       cmp.setup {
         snippet = {
           expand = function(args)
-            vim.snippet.expand(args.body)
+            luasnip.lsp_expand(args.body)
           end,
         },
         completion = { completeopt = 'menu,menuone,noinsert' },
@@ -25,18 +44,14 @@ return {
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
           ['<C-y>'] = cmp.mapping.confirm { select = true },
           ['<C-Space>'] = cmp.mapping.complete {},
-          ['<Tab>'] = cmp.mapping(function(fallback)
-            if vim.snippet.active { direction = 1 } then
-              vim.snippet.jump(1)
-            else
-              fallback()
+          ['<Tab>'] = cmp.mapping(function()
+            if luasnip.expand_or_locally_jumpable() then
+              luasnip.expand_or_jump()
             end
           end, { 'i', 's' }),
-          ['<S-Tab>'] = cmp.mapping(function(fallback)
-            if vim.snippet.active { direction = -1 } then
-              vim.snippet.jump(-1)
-            else
-              fallback()
+          ['<S-Tab>'] = cmp.mapping(function()
+            if luasnip.locally_jumpable(-1) then
+              luasnip.jump(-1)
             end
           end, { 'i', 's' }),
         },
@@ -46,7 +61,7 @@ return {
             group_index = 0,
           },
           { name = 'nvim_lsp' },
-          { name = 'snp' },
+          { name = 'luasnip' },
           { name = 'buffer' },
           { name = 'path' },
         },

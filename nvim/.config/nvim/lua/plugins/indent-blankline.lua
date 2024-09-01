@@ -4,6 +4,9 @@ return {
     main = 'ibl',
     opts = {
       exclude = { filetypes = { 'markdown' } },
+      scope = {
+        show_start = false,
+      },
     },
   },
 }

@@ -13,20 +13,13 @@ return {
     config = function(_, opts)
       local wk = require 'which-key'
       wk.add {
-        { '<leader>c', group = '[C]ode', icon = { icon = '', color = 'orange' } },
-        { '<leader>c_', hidden = true },
+        { '<leader>c', group = '[C]ode', icon = { icon = '', color = 'orange' }, mode = { 'n', 'x' } },
         { '<leader>d', group = '[D]ocument', icon = { icon = '󰈔', color = 'cyan' } },
-        { '<leader>d_', hidden = true },
         { '<leader>h', group = 'Git [H]unk' },
-        { '<leader>h_', hidden = true },
         { '<leader>r', group = '[R]ename', icon = '󰘎' },
-        { '<leader>r_', hidden = true },
         { '<leader>s', group = '[S]earch', icon = { icon = '', color = 'green' } },
-        { '<leader>s_', hidden = true },
         { '<leader>t', group = '[T]oggle', icon = { icon = '', color = 'yellow' } },
-        { '<leader>t_', hidden = true },
         { '<leader>w', group = '[W]orkspace', icon = '' },
-        { '<leader>w_', hidden = true },
         { '<leader>h', desc = 'Git [H]unk', mode = 'v' },
         -- Obsidian/Markdown
         { '<leader>o', group = '[O]bsidian', icon = { icon = '', color = 'purple' } },
