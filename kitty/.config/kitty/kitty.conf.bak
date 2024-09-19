@@ -1,10 +1,17 @@
 # Font
 font_size 16.0
 
-font_family      Iosevka Light
-bold_font        Iosevka ExtraBold
-italic_font      Iosevka Light Italic
-bold_italic_font Iosevka ExtraBold Italic
+font_family      family='Comic Code Ligatures'
+bold_font        family='Comic Code Ligatures' style=Bold
+italic_font      family='Comic Code Ligatures' style=Italic
+bold_italic_font family='Comic Code Ligatures' style='Bold Italic'
+# font_family      Iosevka
+# bold_font        Iosevka ExtraBold
+# italic_font      Iosevka Italic
+# bold_italic_font Iosevka ExtraBold Italic
+undercurl_style thick-sparse
+
+text_composition_strategy platform
 
 # Glyph map 
 # symbol_map U+e000-U+e00a,U+ea60-U+ebeb,U+e0a0-U+e0c8,U+e0ca,U+e0cc-U+e0d4,U+e200-U+e2a9,U+e300-U+e3e3,U+e5fa-U+e6b1,U+e700-U+e7c5,U+f000-U+f2e0,U+f300-U+f372,U+f400-U+f532,U+f0001-U+f1af0 Symbols Nerd Font Mono
@@ -24,19 +31,20 @@ sync_to_monitor yes
 
 # Window
 hide_window_decorations yes
+window_padding_width 3
 
 # Cursor
-cursor_shape block
+# cursor_shape block
 cursor_blink_interval 0
 # cursor_beam_thickness 10
-#shell_integration no-cursor
+shell_integration no-cursor
 
 # Close prompt
 confirm_os_window_close 0
 
 # Theme
 # BEGIN_KITTY_THEME
-# Tokyo Night Moon
+# Tokyo Night
 include current-theme.conf
 # END_KITTY_THEME
 
@@ -46,6 +54,7 @@ background_opacity 1
 # Bindings
 # Clears all keybinds
 clear_all_shortcuts yes
+macos_option_as_alt yes
 
 map cmd+q quit
 map cmd+h hide_macos_app
@@ -56,3 +65,6 @@ map cmd+,        edit_config_file
 map ctrl+cmd+,   load_config_file
 map cmd+n       new_os_window
 map cmd+w       close_os_window
+map cmd+equal         change_font_size all +2.0
+map cmd+minus             change_font_size all -2.0
+map cmd+0               change_font_size all 0

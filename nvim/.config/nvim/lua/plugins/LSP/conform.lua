@@ -32,6 +32,8 @@ return {
         python = { 'isort', 'black' },
         markdown = { 'prettierd' },
         go = { 'gofmt' },
+        rust = { 'rustfmt' },
+        cpp = { 'clang-format' },
       },
     },
   },

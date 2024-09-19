@@ -75,6 +75,17 @@ return {
             },
           },
         },
+        clangd = {
+          cmd = {
+            'clangd',
+            '--background-index',
+            '--clang-tidy',
+            '--header-insertion=iwyu',
+            '--completion-style=detailed',
+            '--function-arg-placeholders',
+            '--fallback-style=llvm',
+          },
+        },
       }
       require('mason').setup()
 
@@ -87,10 +98,12 @@ return {
         'isort', -- Import sorter for Python
         'marksman', -- Markdown LSP server (Completion, goto def, references, rename, diag)
         'prettierd', -- Using for markdown formatting specifically
-        'pylint', -- Python linter
+        'ruff', -- Python linter
         'gopls', -- Golang LSP
-        -- Debuggers
-        -- 'delve', -- Golang debugger
+        'rust-analyzer', -- Rust LSP
+        'clangd', -- C++ LSP
+        'clang-format', -- C++ formatter
+        -- 'clang-tidy', -- C++ Linter
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

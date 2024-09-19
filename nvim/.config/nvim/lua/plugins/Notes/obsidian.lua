@@ -53,7 +53,12 @@ return {
     },
     config = function(_, opts)
       -- Setup binds when plugin is loaded since it'll only be for markdown files
-      vim.keymap.set('n', '<leader>oc', "<cmd>lua require('obsidian').util.toggle_checkbox()<CR>", { desc = 'Obsidian Toggle Checkbox' })
+      vim.keymap.set(
+        'n',
+        '<leader>oc',
+        "<cmd>lua require('obsidian').util.toggle_checkbox()<CR>",
+        { desc = 'Obsidian Toggle Checkbox' }
+      )
       vim.keymap.set('n', '<leader>oo', '<cmd>ObsidianOpen<CR>', { desc = 'Open in Obsidian App' })
       vim.keymap.set('n', '<leader>ob', '<cmd>ObsidianBacklinks<CR>', { desc = 'Show Obsidian Backlinks' })
       vim.keymap.set('n', '<leader>ol', '<cmd>ObsidianLinks<CR>', { desc = 'Show Obsidian Links' })
@@ -65,9 +70,9 @@ return {
         'n',
         '<leader>ok',
         ":!mv '%:p' /Users/metinyalcinkaya/Documents/Obsidian/Main/uncategorized<CR>:bd<CR>",
-        { desc = 'Move File To Uncategorized' }
+        { desc = 'Move File To Uncategorized', silent = true }
       )
-      vim.keymap.set('n', '<leader>odd', ":!rm '%:p'<CR>:bd<CR>", { desc = 'Delete File' })
+      vim.keymap.set('n', '<leader>odd', ":!rm '%:p'<CR>:bd<CR>", { desc = 'Delete File', silent = true })
       vim.keymap.set('n', '<leader>ot', function()
         vim.cmd 'ObsidianTemplate note'
         -- vim.cmd 'silent! 12s/\\(# \\)[^_]*_/\\1/ | silent! 12s/-/ /g'

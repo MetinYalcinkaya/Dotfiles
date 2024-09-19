@@ -31,8 +31,12 @@ export SHELL_SESSIONS_DISABLE=1
 ###############
 export EDITOR="nvim"
 export VISUAL="nvim"
+export MANPAGER="nvim +Man!"
 
 export CLICOLOR=1
+
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 
 # Bat colorscheme
 export BAT_THEME="tokyonight_night"
@@ -44,30 +48,13 @@ if [ -d "/opt/homebrew/opt/ruby/bin/" ]; then
   export PATH=/opt/homebrew/opt/ruby/bin:$PATH
   export PATH='gem environment gemdir'/bin:$PATH
 fi
-# FZF ToykoNight
-export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
-  --highlight-line \
-  --info=inline-right \
-  --ansi \
-  --layout=reverse \
-  --border=none
-  --color=bg+:#283457 \
-  --color=bg:#16161e \
-  --color=border:#27a1b9 \
-  --color=fg:#c0caf5 \
-  --color=gutter:#16161e \
-  --color=header:#ff9e64 \
-  --color=hl+:#2ac3de \
-  --color=hl:#2ac3de \
-  --color=info:#545c7e \
-  --color=marker:#ff007c \
-  --color=pointer:#ff007c \
-  --color=prompt:#2ac3de \
-  --color=query:#c0caf5:regular \
-  --color=scrollbar:#27a1b9 \
-  --color=separator:#ff9e64 \
-  --color=spinner:#ff007c \
-"
+# FZF Catppuccin 
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+--color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
+--color=selected-bg:#45475a \
+--multi"
 
 ###########
 # Keymaps #
@@ -86,6 +73,7 @@ sources+="$ZDOTDIR/aliases/aliases" # Aliases
 # Plugins
 sources+="$ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" # Syntax highlighting
 sources+="$ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" # Autosuggestions
+sources+="$ZDOTDIR/plugins/zsh-syntax-highlighting/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh"
 # Prompt
 sources+="$ZDOTDIR/themes/powerlevel10k/powerlevel10k.zsh-theme"
 
@@ -112,3 +100,4 @@ autoload -Uz compinit && compinit
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
