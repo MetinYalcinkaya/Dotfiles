@@ -39,15 +39,16 @@ export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 
 # Bat colorscheme
-export BAT_THEME="tokyonight_night"
+export BAT_THEME="Catppuccin-Mocha"
 
 ############
 # Ruby Env #
 ############
-if [ -d "/opt/homebrew/opt/ruby/bin/" ]; then
-  export PATH=/opt/homebrew/opt/ruby/bin:$PATH
-  export PATH='gem environment gemdir'/bin:$PATH
-fi
+# if [ -d "/opt/homebrew/opt/ruby/bin/" ]; then
+#   export PATH=/opt/homebrew/opt/ruby/bin:$PATH
+#   export PATH='gem environment gemdir'/bin:$PATH
+# fi
+
 # FZF Catppuccin 
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
@@ -73,7 +74,7 @@ sources+="$ZDOTDIR/aliases/aliases" # Aliases
 # Plugins
 sources+="$ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" # Syntax highlighting
 sources+="$ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" # Autosuggestions
-sources+="$ZDOTDIR/plugins/zsh-syntax-highlighting/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh"
+sources+="$ZDOTDIR/plugins/zsh-catppuccin/catppuccin_mocha-zsh-syntax-highlighting.zsh"
 # Prompt
 sources+="$ZDOTDIR/themes/powerlevel10k/powerlevel10k.zsh-theme"
 
