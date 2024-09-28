@@ -21,6 +21,9 @@ return {
           find_files = {
             hidden = true,
           },
+          live_grep = {
+            additional_args = { '--hidden' },
+          },
           colorscheme = {
             enable_preview = true,
           },
@@ -37,9 +40,10 @@ return {
 
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
-      pcall(require('telescope').load_extension 'undo')
+      pcall(require('telescope').load_extension, 'undo')
 
       local builtin = require 'telescope.builtin'
+
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })

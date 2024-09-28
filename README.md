@@ -6,11 +6,11 @@
 
 **OS:** MacOS
 
-**Shell:** zsh + oh-my-zsh + powerlevel10k
+**Shell:** zsh + powerlevel10k
 
 **Terminal:** Kitty + Tmux
 
-**Theme:** TokyoNight Night
+**Theme:** Catppuccin Mocha
 
 ## Requirements
 
