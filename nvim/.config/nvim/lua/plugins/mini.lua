@@ -28,6 +28,7 @@ return {
   },
   {
     'echasnovski/mini.icons',
+    event = 'VeryLazy',
     init = function()
       package.preload['nvim-web-devicons'] = function()
         require('mini.icons').mock_nvim_web_devicons()

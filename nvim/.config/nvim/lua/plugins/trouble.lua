@@ -5,6 +5,7 @@ return {
       warn_no_results = false,
       open_no_results = true,
     },
+    keys = { '<leader>xx' },
     config = function(_, opts)
       require('trouble').setup(opts)
       local trouble = require 'trouble'

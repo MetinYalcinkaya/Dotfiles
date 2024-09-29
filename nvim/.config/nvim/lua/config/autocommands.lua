@@ -41,3 +41,12 @@ autocmd('FocusGained', {
   group = augroup('reload-on-file-change', { clear = true }),
   desc = 'Reload file if changed',
 })
+
+-- Defer friendly-snippets setup to after neovim loads
+autocmd('VimEnter', {
+  callback = function()
+    vim.defer_fn(function()
+      require('luasnip.loaders.from_vscode').lazy_load()
+    end, 100)
+  end,
+})

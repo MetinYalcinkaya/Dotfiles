@@ -4,6 +4,12 @@ return {
     version = '*',
     lazy = true,
     ft = 'markdown',
+    cond = function()
+      local cwd = vim.fn.getcwd()
+      local home = vim.fn.expand '~'
+      local vault_path = home .. '/Documents/Obsidian/Main'
+      return cwd == vault_path
+    end,
     dependencies = {
       'nvim-lua/plenary.nvim',
     },
@@ -14,8 +20,8 @@ return {
           path = '~/Documents/Obsidian/Main/',
         },
       },
-      notes_subsir = 'inbox',
-      new_notes_location = 'notes_subsir',
+      notes_subdir = 'inbox',
+      new_notes_location = 'notes_subdir',
 
       completion = {
         nvim_cmp = true,
@@ -35,7 +41,6 @@ return {
           opts = { buffer = true, expr = true },
         },
       },
-      new_nodes_location = 'current_dir',
       disable_frontmatter = false,
       templates = {
         subdir = 'templates',
@@ -52,13 +57,9 @@ return {
       },
     },
     config = function(_, opts)
-      -- Setup binds when plugin is loaded since it'll only be for markdown files
-      vim.keymap.set(
-        'n',
-        '<leader>oc',
-        "<cmd>lua require('obsidian').util.toggle_checkbox()<CR>",
-        { desc = 'Obsidian Toggle Checkbox' }
-      )
+      local obsidian = require 'obsidian'
+
+      vim.keymap.set('n', '<leader>oc', obsidian.util.toggle_checkbox, { desc = 'Obsidian Toggle Checkbox' })
       vim.keymap.set('n', '<leader>oo', '<cmd>ObsidianOpen<CR>', { desc = 'Open in Obsidian App' })
       vim.keymap.set('n', '<leader>ob', '<cmd>ObsidianBacklinks<CR>', { desc = 'Show Obsidian Backlinks' })
       vim.keymap.set('n', '<leader>ol', '<cmd>ObsidianLinks<CR>', { desc = 'Show Obsidian Links' })
@@ -73,9 +74,10 @@ return {
         { desc = 'Move File To Uncategorized', silent = true }
       )
       vim.keymap.set('n', '<leader>odd', ":!rm '%:p'<CR>:bd<CR>", { desc = 'Delete File', silent = true })
+
+      -- Inserts template and formats first title by removing date and file name chars
       vim.keymap.set('n', '<leader>ot', function()
         vim.cmd 'ObsidianTemplate note'
-        -- vim.cmd 'silent! 12s/\\(# \\)[^_]*_/\\1/ | silent! 12s/-/ /g'
         local LINE_NUM = 13
         local line = vim.fn.getline(LINE_NUM)
         local title = line:match '# (.*)'
@@ -89,7 +91,17 @@ return {
 
         vim.cmd 'noh'
       end, { desc = 'Insert Template' })
-      require('obsidian').setup(opts)
+
+      obsidian.setup(opts)
+
+      -- Obsidian specific live grep folders
+      local inbox_dir = '~/Documents/Obsidian/Main/inbox'
+      local notes_dir = '~/Documents/Obsidian/Main/notes'
+      local uncategorized_dir = '~/Documents/Obsidian/Main/uncategorized'
+
+      vim.keymap.set('n', '<leader>sg', function()
+        require('telescope.builtin').live_grep { search_dirs = { inbox_dir, notes_dir, uncategorized_dir } }
+      end, { desc = '[S]earch by [G]rep (Obsidian)' })
     end,
   },
 }
