@@ -8,7 +8,7 @@
 
 **Shell:** zsh + powerlevel10k
 
-**Terminal:** Kitty + Tmux
+**Terminal:** Ghostty + Tmux
 
 **Theme:** Catppuccin Mocha
 

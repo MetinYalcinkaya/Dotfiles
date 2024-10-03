@@ -45,7 +45,7 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 -- Sets how neovim will display certain whitespace characters in the editor.
-vim.opt.list = false
+vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Preview substitutions live, as you type!
@@ -73,7 +73,7 @@ vim.opt.breakindent = true
 vim.g.markdown_recommended_style = 0
 
 -- Spell language
-vim.opt.spelllang = 'en_au'
+vim.opt.spelllang = 'en'
 
 -- Experimental smooth scrolling
 vim.opt.smoothscroll = false

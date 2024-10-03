@@ -78,6 +78,16 @@ return {
           },
         },
         clangd = {
+          on_attach = function()
+            require('clangd_extensions.inlay_hints').setup_autocmd()
+            require('clangd_extensions.inlay_hints').set_inlay_hints()
+            vim.keymap.set(
+              'n',
+              '<leader>ch',
+              '<cmd>ClangdSwitchSourceHeader<cr>',
+              { desc = 'Switch Source/Header (C/C++)', silent = true }
+            )
+          end,
           cmd = {
             'clangd',
             '--background-index',

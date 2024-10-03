@@ -8,7 +8,7 @@ return {
       local cwd = vim.fn.getcwd()
       local home = vim.fn.expand '~'
       local vault_path = home .. '/Documents/Obsidian/Main'
-      return cwd == vault_path
+      return string.find(cwd, vault_path) -- cwd == vault_path
     end,
     dependencies = {
       'nvim-lua/plenary.nvim',
@@ -59,6 +59,8 @@ return {
     config = function(_, opts)
       local obsidian = require 'obsidian'
 
+      obsidian.setup(opts)
+
       vim.keymap.set('n', '<leader>oc', obsidian.util.toggle_checkbox, { desc = 'Obsidian Toggle Checkbox' })
       vim.keymap.set('n', '<leader>oo', '<cmd>ObsidianOpen<CR>', { desc = 'Open in Obsidian App' })
       vim.keymap.set('n', '<leader>ob', '<cmd>ObsidianBacklinks<CR>', { desc = 'Show Obsidian Backlinks' })
@@ -91,8 +93,6 @@ return {
 
         vim.cmd 'noh'
       end, { desc = 'Insert Template' })
-
-      obsidian.setup(opts)
 
       -- Obsidian specific live grep folders
       local inbox_dir = '~/Documents/Obsidian/Main/inbox'
