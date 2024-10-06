@@ -49,6 +49,7 @@ return {
           ['-'] = 'actions.parent',
           ['<C-o>'] = function()
             open_tmux_pane_to_directory 'h'
+            oil.toggle_float()
           end,
           ['<Leader>o'] = function()
             open_tmux_pane_to_file_in_neovim 'h'

@@ -44,6 +44,10 @@ if.app-id = 'com.python.python'
   run = 'layout floating'
 
 [[on-window-detected]]
+if.app-id = 'com.netacad.PacketTracer8.2.2'
+  run = 'layout floating'
+
+[[on-window-detected]]
 if.app-id = 'com.hnc.Discord'
   run = 'move-node-to-workspace 🎵'
 
