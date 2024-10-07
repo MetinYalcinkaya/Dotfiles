@@ -78,13 +78,17 @@ return {
           },
         },
         clangd = {
-          on_attach = function()
-            require('clangd_extensions.inlay_hints').setup_autocmd()
-            require('clangd_extensions.inlay_hints').set_inlay_hints()
+          on_attach = function(client, bufnr)
+            -- Enables inlay hints on attach
+            if client.server_capabilities.inlayHintProvider then
+              vim.lsp.inlay_hint.enable(true, { bufnr })
+            end
+
+            local clangd_extensions_source_header = require 'clangd_extensions.switch_source_header'
             vim.keymap.set(
               'n',
               '<leader>ch',
-              '<cmd>ClangdSwitchSourceHeader<cr>',
+              clangd_extensions_source_header.switch_source_header,
               { desc = 'Switch Source/Header (C/C++)', silent = true }
             )
           end,
