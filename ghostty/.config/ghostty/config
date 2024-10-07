@@ -44,8 +44,8 @@ cursor-style-blink = false
 # Window
 window-decoration = false
 window-vsync = true
-window-padding-y = 0
-window-padding-x = 0
+window-padding-y = 5
+window-padding-x = 5
 window-padding-balance = true
 confirm-close-surface = false
 
