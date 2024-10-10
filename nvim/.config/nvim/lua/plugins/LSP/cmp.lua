@@ -1,6 +1,7 @@
 return {
   {
-    'hrsh7th/nvim-cmp',
+    'iguanacucumber/magazine.nvim',
+    name = 'nvim-cmp',
     event = 'InsertEnter',
     dependencies = {
       {
@@ -18,15 +19,43 @@ return {
         },
       },
       'saadparwaiz1/cmp_luasnip',
-      'hrsh7th/cmp-path',
+      -- 'hrsh7th/cmp-path',
+      'FelipeLema/cmp-async-path',
       'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-cmdline',
+      'hrsh7th/cmp-calc',
     },
     config = function()
       local cmp = require 'cmp'
       local luasnip = require 'luasnip'
+
+      -- Border icons
+      local function border(hl_name)
+        return {
+          { '╭', hl_name },
+          { '─', hl_name },
+          { '╮', hl_name },
+          { '│', hl_name },
+          { '╯', hl_name },
+          { '─', hl_name },
+          { '╰', hl_name },
+          { '│', hl_name },
+        }
+      end
+
       luasnip.config.setup {}
 
       cmp.setup {
+        window = {
+          completion = {
+            border = border 'FloatBorder',
+            winhighlight = 'Normal:NormalFloat,CursorLine:PmenuSel,Search:None',
+          },
+          documentation = {
+            border = border 'FloatBorder',
+          },
+        },
         snippet = {
           expand = function(args)
             luasnip.lsp_expand(args.body)
@@ -63,10 +92,35 @@ return {
           },
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
-          -- { name = 'buffer' },
-          { name = 'path' },
+          { name = 'buffer' },
+          -- { name = 'path' },
+          { name = 'async_path' },
+          { name = 'calc' },
+        },
+        view = {
+          entries = 'custom',
         },
       }
+
+      cmp.setup.cmdline(':', {
+        mapping = cmp.mapping.preset.cmdline(),
+        -- formatting = { -- removes kind from completion
+        --   format = function(entry, vim_item)
+        --     vim_item.kind = ''
+        --     return vim_item
+        --   end,
+        -- },
+        sources = cmp.config.sources({
+          { name = 'async_path' },
+        }, {
+          {
+            name = 'cmdline',
+            option = {
+              ignore_cmds = { 'Man', '!' },
+            },
+          },
+        }),
+      })
     end,
   },
 }

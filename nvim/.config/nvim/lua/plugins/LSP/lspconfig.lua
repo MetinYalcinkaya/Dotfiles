@@ -78,12 +78,7 @@ return {
           },
         },
         clangd = {
-          on_attach = function(client, bufnr)
-            -- Enables inlay hints on attach
-            if client.server_capabilities.inlayHintProvider then
-              vim.lsp.inlay_hint.enable(true, { bufnr })
-            end
-
+          on_attach = function()
             local clangd_extensions_source_header = require 'clangd_extensions.switch_source_header'
             vim.keymap.set(
               'n',

@@ -48,6 +48,14 @@ if.app-id = 'com.netacad.PacketTracer8.2.2'
   run = 'layout floating'
 
 [[on-window-detected]]
+if.app-id = 'com.apple.Photos'
+  run = 'layout floating'
+
+[[on-window-detected]]
+  if.app-id = 'com.zoom.xos'
+  run = 'layout floating'
+
+[[on-window-detected]]
 if.app-id = 'com.hnc.Discord'
   run = 'move-node-to-workspace 🎵'
 
