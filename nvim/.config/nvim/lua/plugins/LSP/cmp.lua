@@ -2,7 +2,8 @@ return {
   {
     'iguanacucumber/magazine.nvim',
     name = 'nvim-cmp',
-    event = 'InsertEnter',
+    -- event = 'InsertEnter',
+    event = 'VeryLazy',
     dependencies = {
       {
         'L3MON4D3/LuaSnip',
@@ -18,6 +19,7 @@ return {
           },
         },
       },
+      'onsails/lspkind.nvim',
       'saadparwaiz1/cmp_luasnip',
       -- 'hrsh7th/cmp-path',
       'FelipeLema/cmp-async-path',
@@ -29,6 +31,7 @@ return {
     config = function()
       local cmp = require 'cmp'
       local luasnip = require 'luasnip'
+      local lspkind = require 'lspkind'
 
       -- Border icons
       local function border(hl_name)
@@ -62,6 +65,24 @@ return {
           end,
         },
         completion = { completeopt = 'menu,menuone,noinsert' },
+
+        performance = {
+          debounce = 0,
+          throttle = 0,
+          fetching_timeout = 500,
+          confirm_resolve_timeout = 80,
+          async_budget = 1,
+          max_view_entries = 200,
+        },
+
+        formatting = {
+          format = lspkind.cmp_format {
+            mode = 'symbol',
+            maxwidth = 50,
+            ellipsis_char = '...',
+            show_labelDetails = false,
+          },
+        },
 
         mapping = cmp.mapping.preset.insert {
           ['<C-n>'] = cmp.mapping.select_next_item(),

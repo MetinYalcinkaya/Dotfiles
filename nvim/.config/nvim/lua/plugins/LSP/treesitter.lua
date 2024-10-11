@@ -20,6 +20,7 @@ return {
         'regex',
         'rust',
         'sql',
+        'swift',
         'vim',
         'vimdoc',
       },

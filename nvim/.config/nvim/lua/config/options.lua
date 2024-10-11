@@ -23,7 +23,8 @@ end)
 -- Save undo history
 vim.opt.undofile = true
 
--- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
+-- Case-insensitive searching UNLESS \C or one or more
+-- capital letters in the search term
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
@@ -45,7 +46,7 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 -- Sets how neovim will display certain whitespace characters in the editor.
-vim.opt.list = true
+vim.opt.list = false
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Preview substitutions live, as you type!
@@ -59,6 +60,9 @@ vim.opt.scrolloff = 10
 
 -- Set true term colors
 vim.opt.termguicolors = true
+
+-- Color column
+-- vim.opt.colorcolumn = '80'
 
 -- Change tab sizing
 vim.opt.tabstop = 2

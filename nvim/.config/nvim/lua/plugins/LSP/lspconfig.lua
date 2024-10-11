@@ -96,8 +96,27 @@ return {
             '--function-arg-placeholders',
             '--fallback-style=llvm',
           },
+          filetypes = {
+            'c',
+            'cpp',
+          },
         },
       }
+
+      -- TODO: Find a more graceful way to do this, it's ugly af
+      -- but it was the only way to get it done it seems, as
+      -- mason-lspconfig doesn't like it when you put
+      -- sourcekit through it
+      local swift_server = {
+        sourcekit = {
+          root_dir = require('lspconfig').util.root_pattern('.git', 'buildServer.json'),
+        },
+      }
+
+      for server, setup in pairs(swift_server) do
+        require('lspconfig')[server].setup(setup)
+      end
+
       require('mason').setup()
 
       local ensure_installed = vim.tbl_keys(servers or {})

@@ -5,4 +5,5 @@ export PATH=$PATH:$HOME/go/bin
 export PATH=/opt/homebrew/bin:$PATH
 export PATH=$PATH:$HOME/Library/Python/3.9/bin
 export PATH=$ZDOTDIR/scripts:$PATH
+export PATH="$PATH:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin"
 . "$HOME/.cargo/env"

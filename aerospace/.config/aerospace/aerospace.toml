@@ -56,6 +56,14 @@ if.app-id = 'com.apple.Photos'
   run = 'layout floating'
 
 [[on-window-detected]]
+  if.app-id = 'com.apple.FontBook'
+  run = 'layout floating'
+
+[[on-window-detected]]
+  if.app-id = 'com.apple.iphonesimulator'
+  run = 'layout floating'
+
+[[on-window-detected]]
 if.app-id = 'com.hnc.Discord'
   run = 'move-node-to-workspace 🎵'
 

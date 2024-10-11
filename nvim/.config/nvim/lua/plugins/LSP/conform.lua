@@ -36,6 +36,7 @@ return {
         rust = { 'rustfmt' },
         c = { 'clang-format' },
         cpp = { 'clang-format' },
+        swift = { 'swiftformat' },
       },
     },
   },
