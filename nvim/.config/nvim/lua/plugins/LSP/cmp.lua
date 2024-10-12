@@ -2,8 +2,8 @@ return {
   {
     'iguanacucumber/magazine.nvim',
     name = 'nvim-cmp',
-    -- event = 'InsertEnter',
-    event = 'VeryLazy',
+    event = { 'InsertEnter', 'CmdlineEnter' },
+    -- event = 'VeryLazy',
     dependencies = {
       {
         'L3MON4D3/LuaSnip',

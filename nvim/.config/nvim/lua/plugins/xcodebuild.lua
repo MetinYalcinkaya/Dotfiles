@@ -6,7 +6,7 @@ return {
       'nvim-telescope/telescope.nvim',
       'MunifTanjim/nui.nvim',
       'stevearc/oil.nvim',
-      -- 'nvim-treesitter/nvim-treesitter',
+      'nvim-treesitter/nvim-treesitter',
     },
     config = function()
       local xcodebuild = require 'xcodebuild'

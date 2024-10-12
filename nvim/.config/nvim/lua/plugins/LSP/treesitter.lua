@@ -27,6 +27,7 @@ return {
       auto_install = true,
       highlight = {
         enable = true,
+        disable = { 'swift' }, -- Not sure why, but performs terribly with swift
         additional_vim_regex_highlighting = { 'ruby' },
       },
       indent = { enable = false, disable = { 'ruby' } },
