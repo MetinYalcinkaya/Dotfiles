@@ -77,10 +77,10 @@ return {
 
         formatting = {
           format = lspkind.cmp_format {
-            mode = 'symbol',
+            mode = 'text_symbol',
             maxwidth = 50,
             ellipsis_char = '...',
-            show_labelDetails = false,
+            show_labelDetails = true,
           },
         },
 
@@ -113,7 +113,7 @@ return {
           },
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
-          { name = 'buffer' },
+          -- { name = 'buffer' },
           -- { name = 'path' },
           { name = 'async_path' },
           { name = 'calc' },

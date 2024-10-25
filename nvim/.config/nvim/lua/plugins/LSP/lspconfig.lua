@@ -106,7 +106,7 @@ return {
       -- TODO: Find a more graceful way to do this, it's ugly af
       -- but it was the only way to get it done it seems, as
       -- mason-lspconfig doesn't like it when you put
-      -- sourcekit through it
+      -- sourcekit through it since it's not officially supported
       local swift_server = {
         sourcekit = {
           root_dir = require('lspconfig').util.root_pattern('.git', 'buildServer.json'),
@@ -133,6 +133,7 @@ return {
         'rust-analyzer', -- Rust LSP
         'clangd', -- C++ LSP
         'clang-format', -- C++ formatter
+        'swiftlint', -- Swift linter
         -- 'clang-tidy', -- C++ Linter
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
