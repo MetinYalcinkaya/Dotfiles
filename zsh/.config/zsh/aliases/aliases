@@ -2,6 +2,7 @@
 # Personal #
 ###########
 alias dots="cd $DOTFILES"
+alias dotsn="cd $DOTFILES/nvim/.config/nvim/"
 alias vault="cd $HOME/Documents/Obsidian/Main/"
 alias workspace="cd $HOME/Developer/Workspace/"
 # Obsidian review

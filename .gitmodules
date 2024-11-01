@@ -7,3 +7,6 @@
 [submodule "zsh/.config/zsh/themes/powerlevel10k"]
 	path = zsh/.config/zsh/themes/powerlevel10k
 	url = git@github.com:romkatv/powerlevel10k.git
+[submodule "nvim/.config/nvim"]
+	path = nvim/.config/nvim
+	url = git@github.com:MetinYalcinkaya/nvim.git
